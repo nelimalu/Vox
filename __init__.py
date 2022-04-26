@@ -22,8 +22,11 @@ def get_message_data():
     data = request.form['data']
     messages.append(data)
 
+    if len(messages) > 200:
+    	messages.pop(0)
+
     return data
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=False, host='0.0.0.0')
